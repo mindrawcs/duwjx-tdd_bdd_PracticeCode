@@ -26,14 +26,14 @@ class IMDb:
         """Get reviews for a movie"""
         logger.info("Searching IMDb for Reviews: %s", imdb_id)
         results = requests.get(f"https://imdb-api.com/API/Reviews/{self.apikey}/{imdb_id}")
-        if results.status_code == 200: 
-            return results.json()
-        return {}
+        #if results.status_code == 200: 
+        return results.json() if results.status_code == 200 else {}
+        #return {}
 
     def movie_ratings(self, imdb_id: str) -> dict:
         """Get ratings for a movie"""
         logger.info("Searching IMDb for Ratings: %s", imdb_id)
         results = requests.get(f"https://imdb-api.com/API/Ratings/{self.apikey}/{imdb_id}")
-        if results.status_code == 200: 
-            return results.json()
-        return {}
+        #if results.status_code == 200: 
+        return results.json() if results.status_code == 200 else {}
+        #return {}
